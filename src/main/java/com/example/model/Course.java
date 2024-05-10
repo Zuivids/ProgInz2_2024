@@ -6,6 +6,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AccessLevel;
@@ -18,35 +20,25 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @ToString
-@Table(name="ProfessorTable")
+@Table(name="CourseTable")
 @Entity
-public class Professor {
+public class Course {
 	@Id
-	@Column(name="Id_p")
-	@GeneratedValue(strategy= GenerationType.AUTO)
+	@Column(name="Id_c")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Setter(value = AccessLevel.NONE)
-	private int id_s;
+	private int id_c;
 	
-	@Column(name="Name")
+	@Column(name="Title")
 	@NotNull
-	@Size(min = 3, max = 50)
-	//	TODO regex
-	private String name;
+	@Size(min = 4, max = 50)
+	private String title;
 	
-	@Column(name="Surname")
-	@NotNull
-	@Size(min = 3, max = 50)
-	//	TODO regex
-	private String surname;
+	@Column(name="Credit Points")
+	@Min(1)
+	@Max(20)
+	private int creditPoints;
 	
-	@Column(name="Degree")
-	@NotNull
-	private Degree degree;
-	
-	public Professor(String name, String surname, Degree degree) {
-		setName(name);
-		setSurname(surname);
-		setDegree(degree);
-	}
+	//TODO uztaisit konstruktoru pec saites pievienoshanas ar profesoru
 	
 }

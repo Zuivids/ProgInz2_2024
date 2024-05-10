@@ -25,7 +25,7 @@ public class Student {
 	@Column(name="Id_s")
 	@GeneratedValue(strategy= GenerationType.AUTO)
 	@Setter(value = AccessLevel.NONE)
-	private int ids;
+	private int id_s;
 	
 	@Column(name="Name")
 	@NotNull
