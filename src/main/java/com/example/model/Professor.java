@@ -18,11 +18,11 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @ToString
-@Table(name="StudentTable")
+@Table(name="ProfessorTable")
 @Entity
-public class Student {
+public class Professor {
 	@Id
-	@Column(name="Id_s")
+	@Column(name="Id_p")
 	@GeneratedValue(strategy= GenerationType.AUTO)
 	@Setter(value = AccessLevel.NONE)
 	private int ids;
@@ -39,9 +39,14 @@ public class Student {
 	//	TODO regex
 	private String surname;
 	
-	public Student(String name, String surname) {
+	@Column(name="Degree")
+	@NotNull
+	private Degree degree;
+	
+	public Professor(String name, String surname, Degree degree) {
 		setName(name);
 		setSurname(surname);
+		setDegree(degree);
 	}
 	
 }
