@@ -23,10 +23,10 @@ import lombok.ToString;
 @Entity
 public class Professor {
 	@Id
-	@Column(name = "Id_p")
+	@Column(name = "Idp")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Setter(value = AccessLevel.NONE)
-	private int id_p;
+	private int idp;
 
 	@Column(name = "Name")
 	@NotNull
