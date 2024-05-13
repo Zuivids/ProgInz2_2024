@@ -54,7 +54,7 @@ public class Course {
 	@ToString.Exclude
 	private Collection<Grade> grades;
 
-	public Course(String title, int creditpoints, Professor profressor) {
+	public Course(String title, int creditpoints, Professor professor) {
 		setTitle(title);
 		setCreditPoints(creditpoints);
 		setProfessor(professor);
