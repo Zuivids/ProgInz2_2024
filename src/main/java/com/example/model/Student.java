@@ -42,13 +42,14 @@ public class Student {
 	//	TODO regex
 	private String surname;
 	
+	@OneToMany(mappedBy = "student")
+	@ToString.Exclude
+	private Collection<Grade> grades;
+	
 	public Student(String name, String surname) {
 		setName(name);
 		setSurname(surname);
 	}
 	
-	@OneToMany(mappedBy = "student")
-	@ToString.Exclude
-	private Collection<Student> student;
 	
 }
