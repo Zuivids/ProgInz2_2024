@@ -1,0 +1,26 @@
+<html xmlns:th="http://www.thymeleafe.org">
+	<body>
+		
+		<p th:text="${msg}"></p>
+		
+		<table border="1">
+			
+			<tr>
+				<td>ID</td>
+				<td>Value</td>
+				<td>Student name</td>
+				<td>Student surname</td>
+				<td>Course title</td>
+			</tr>
+			
+			<tr th:each="TempC : ${mydata}"> 
+				<td th:text="${TempC.getIdg()}" ></td>
+				<td th:text="${TempC.getGrvalue()}" ></td>
+				<td th:text="${TempC.getStudent().getName()}" ></td>
+				<td th:text="${TempC.getStudent().getSurname()}" ></td>
+				<td th:text="${TempC.getCourse().getTitle()}" ></td>
+			</tr>
+		</table>
+		
+	</body>
+</html>

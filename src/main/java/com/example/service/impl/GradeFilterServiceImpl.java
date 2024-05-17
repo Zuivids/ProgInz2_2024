@@ -31,7 +31,7 @@ public class GradeFilterServiceImpl implements IGradeFilterService {
 		if (result.isEmpty())
 			throw new Exception("There is no failed grades");
 
-		return null;
+		return result;
 	}
 
 	@Override

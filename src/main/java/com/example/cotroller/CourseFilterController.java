@@ -13,14 +13,14 @@ import com.example.model.Course;
 import com.example.service.ICourseFilterService;
 
 @Controller
-@RequestMapping("/course")
+@RequestMapping("/course/filter")
 
 public class CourseFilterController {
 
 	@Autowired
 	private ICourseFilterService courseService;
 
-	@GetMapping("/filter/creditpoints/{param}")
+	@GetMapping("/creditpoints/{param}")
 	public String getCourseFilterByCreditPoints(@PathVariable("param") int param, Model model) {
 
 		try {
@@ -34,7 +34,7 @@ public class CourseFilterController {
 		}
 	}
 
-	@GetMapping("/filter/student/{id}")
+	@GetMapping("/student/{id}")
 	public String getCourseFilterByStudentId(@PathVariable("id") int id, Model model) {
 
 		try {
@@ -48,7 +48,7 @@ public class CourseFilterController {
 		}
 	}
 
-	@GetMapping("/filter/professor/{id}")
+	@GetMapping("/professor/{id}")
 	public String getCourseFilterByProfessorId(@PathVariable("id") int id, Model model) {
 
 		try {
