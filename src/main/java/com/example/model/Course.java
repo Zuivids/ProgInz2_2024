@@ -1,5 +1,6 @@
 package com.example.model;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import jakarta.persistence.Column;
@@ -8,6 +9,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -44,12 +46,9 @@ public class Course {
 	@Max(20)
 	private int creditPoints;
 
-	// TODO uztaisit konstruktoru pec saites pievienoshanas ar profesoru
-
-	@OneToOne
-	@JoinColumn(name = "Idp")
-	private Professor professor;
-
+	@ManyToMany(mappedBy = "course")
+	private Collection<Professor> professors = new ArrayList<>();
+	
 	@OneToMany(mappedBy = "course")
 	@ToString.Exclude
 	private Collection<Grade> grades;
@@ -59,4 +58,10 @@ public class Course {
 		setCreditPoints(creditpoints);
 		setProfessor(professor);
 	}
+	
+	public void addProfessor(Professor professor) {
+		if(!professors.contains(professor)) professors.add(professor);
+	}
+	
+	//TODO uztaisit ari iznemsanas funkciju
 }
