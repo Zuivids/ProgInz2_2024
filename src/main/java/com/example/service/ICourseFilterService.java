@@ -6,7 +6,7 @@ import com.example.model.Course;
 
 public interface ICourseFilterService {
 
-	ArrayList<Course> selectCoursesByCreditPoinrs(int creditpoints) throws Exception;
+	ArrayList<Course> selectCoursesByCreditPoints(int creditpoints) throws Exception;
 	
 	Course selectCourseByProfessorId(int id) throws Exception;
 	

@@ -22,11 +22,11 @@ public class CourseFilterServiceImpl implements ICourseFilterService {
 	private IStudentRepo studRepo;
 
 	@Override
-	public ArrayList<Course> selectCoursesByCreditPoinrs(int creditpoints) throws Exception {
+	public ArrayList<Course> selectCoursesByCreditPoints(int creditpoints) throws Exception {
 		if (creditpoints < 1 || creditpoints > 20)
 			throw new Exception("Problems with input args!");
 
-		ArrayList<Course> result = courseRepo.findByCreditpoints(creditpoints);
+		ArrayList<Course> result = courseRepo.findByCreditPoints(creditpoints);
 		if (result.isEmpty())
 			throw new Exception("Empty set!");
 
@@ -39,7 +39,7 @@ public class CourseFilterServiceImpl implements ICourseFilterService {
 			throw new Exception("ID should be positive!");
 		if (!profRepo.existsById(id))
 			throw new Exception("Professor with this id does not exist!");
-		Course result = courseRepo.finByProfessorIdp(id);
+		Course result = courseRepo.findByProfessorIdp(id);
 		if (result == null)
 			throw new Exception("There is no course linkage to this Professor");
 		return result;

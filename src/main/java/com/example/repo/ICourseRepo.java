@@ -8,9 +8,9 @@ import com.example.model.Course;
 
 public interface ICourseRepo extends CrudRepository<Course, Integer>{
 
-	ArrayList<Course> findByCreditpoints(int creditpoints);
+	ArrayList<Course> findByCreditPoints(int creditpoints);
 
-	Course finByProfessorIdp(int id);
+	Course findByProfessorIdp(int id);
 
 	ArrayList<Course> findByGradesStudentIds(int id);
 
