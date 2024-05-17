@@ -68,6 +68,7 @@ public class ProgInzSeminar2Application {
 		
 		//TODO 
 		//izveidot servisu-interfeisu prieksh kursu filtracijas
+		
 		// selectCoursesByProfessor() return all courses of specific professor;
 		// selectCoursesByStudent() return all courses where specific student is involved
 		// izveidot servisu-interfeicu prieksh atzimju filtracijas
