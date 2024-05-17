@@ -53,10 +53,13 @@ public class Course {
 	@ToString.Exclude
 	private Collection<Grade> grades;
 
-	public Course(String title, int creditpoints, Professor professor) {
+	public Course(String title, int creditpoints, Professor ... profs) {
 		setTitle(title);
 		setCreditPoints(creditpoints);
-		setProfessor(professor);
+		
+		for(Professor tempP: profs) {
+			addProfessor(tempP);
+		}
 	}
 	
 	public void addProfessor(Professor professor) {

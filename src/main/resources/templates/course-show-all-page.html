@@ -13,12 +13,18 @@
 				<td>Professor surname</td>
 			</tr>
 			
-			<tr>
-				<td th:text="${mydata.getIdc()}" ></td>
-				<td th:text="${mydata.getTitle()}" ></td>
-				<td th:text="${mydata.getCreditPoints()}" ></td>
-				<td th:text="${mydata.getProfessor().getName()}" ></td>
-				<td th:text="${mydata.getProfessor().getSurname()}" ></td>
+			<tr th:each="tempC : ${mydata}">
+				<td th:text="${tempC.getIdc()}" ></td>
+				<td th:text="${tempC.getTitle()}" ></td>
+				<td th:text="${tempC.getCreditPoints()}" ></td>
+				<td>
+					<tr th:each="${tempP.getProfessor()}" >
+						<p th: text="${tempP.getname()}"></p>
+						<p th: text="${tempP.getsurname()}"></p>
+					</tr>
+				</td>
+				
+				<td th:text="${tempC.getProfessor().getSurname()}" ></td>
 			</tr>
 		</table>
 		
