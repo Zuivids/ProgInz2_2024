@@ -19,16 +19,44 @@ public class CourseFilterController {
 
 	@Autowired
 	private ICourseFilterService courseService;
-	
+
 	@GetMapping("/filter/creditpoints/{param}")
 	public String getCourseFilterByCreditPoints(@PathVariable("param") int param, Model model) {
-		
+
 		try {
 			ArrayList<Course> selectedCourses = courseService.selectCoursesByCreditPoints(param);
 			model.addAttribute("mydata", selectedCourses);
 			model.addAttribute("msg", "Courses filtered by creditpoints");
 			return "course-show-all-page";
-		}catch (Exception e){
+		} catch (Exception e) {
+			model.addAttribute("mydata", e.getMessage());
+			return "error-page";
+		}
+	}
+
+	@GetMapping("/filter/student/{id}")
+	public String getCourseFilterByStudentId(@PathVariable("id") int id, Model model) {
+
+		try {
+			ArrayList<Course> selectedCourses = courseService.selectCoursesByStudentId(id);
+			model.addAttribute("mydata", selectedCourses);
+			model.addAttribute("msg", "Courses filtered by student id");
+			return "course-show-all-page";
+		} catch (Exception e) {
+			model.addAttribute("mydata", e.getMessage());
+			return "error-page";
+		}
+	}
+
+	@GetMapping("/filter/professor/{id}")
+	public String getCourseFilterByProfessorId(@PathVariable("id") int id, Model model) {
+
+		try {
+			Course selectedCourse = courseService.selectCourseByProfessorId(id);
+			model.addAttribute("mydata", selectedCourse);
+			model.addAttribute("msg", "Courses filtered by professor id");
+			return "course-show-page";
+		} catch (Exception e) {
 			model.addAttribute("mydata", e.getMessage());
 			return "error-page";
 		}
