@@ -46,7 +46,7 @@ public class Course {
 	@Max(20)
 	private int creditPoints;
 
-	@ManyToMany(mappedBy = "course")
+	@ManyToMany(mappedBy = "courses")
 	private Collection<Professor> professors = new ArrayList<>();
 	
 	@OneToMany(mappedBy = "course")
